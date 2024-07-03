@@ -1,0 +1,25 @@
+.projects {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .card {
+    height: 100%;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .btn-custom {
+    background-color: grey;
+    border-color: grey;
+    color: white;
+  }
+  
+  .btn-custom:hover {
+    background-color: purple;
+    border-color: purple;
+  }
