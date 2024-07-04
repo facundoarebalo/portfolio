@@ -18,7 +18,6 @@ const Projects = () => {
       description: 'Descripción del proyecto 3.',
       link: 'https://github.com/tu-usuario/proyecto3'
     }
-    // Añade más proyectos según sea necesario
   ];
 
   return (

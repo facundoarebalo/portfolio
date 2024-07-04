@@ -3,3 +3,35 @@ body {
 background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 
 }
+
+
+
+.custom-fig {
+    text-align: center;
+  }
+  
+  .custom-img {
+    width: 250px;
+    max-width: 100%;
+    height: 250px;
+  }
+  
+  @media (max-width: 768px) {
+    .custom-img {
+      width: 150px; 
+    }
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
