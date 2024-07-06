@@ -29,18 +29,22 @@ function App() {
         </section>
       </Element>
       <Element name="skills">
-        <Skills /> 
-      </Element>
-      <Element name="projects">
-        <Projects /> 
-      </Element>
-      <Element name="contact">
-        <section>
-          <h2>Contactate conmigo</h2>
-          <Contacto/>
+        <section className="skills">
+          <Skills />
         </section>
       </Element>
-      <Footer/>
+      <Element name="projects">
+        <section className="projects">
+          <Projects />
+        </section>
+      </Element>
+      <Element name="contact">
+        <section className="contact">
+          <h2>Contactate conmigo</h2>
+          <Contacto />
+        </section>
+      </Element>
+      <Footer />
     </>
   )
 }

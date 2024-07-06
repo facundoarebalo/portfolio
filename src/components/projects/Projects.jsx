@@ -1,4 +1,5 @@
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import './Projects.css';
 
 const Projects = () => {
@@ -6,17 +7,23 @@ const Projects = () => {
     {
       title: 'Proyecto 1',
       description: 'Descripción del proyecto 1.',
-      link: 'https://github.com/tu-usuario/proyecto1'
+      repoLink: 'https://github.com/tu-usuario/proyecto1',
+      siteLink: 'https://tu-sitio.com/proyecto1',
+      image: 'https://via.placeholder.com/150'
     },
     {
       title: 'Proyecto 2',
       description: 'Descripción del proyecto 2.',
-      link: 'https://github.com/tu-usuario/proyecto2'
+      repoLink: 'https://github.com/tu-usuario/proyecto2',
+      siteLink: 'https://tu-sitio.com/proyecto2',
+      image: 'https://via.placeholder.com/150'
     },
     {
       title: 'Proyecto 3',
       description: 'Descripción del proyecto 3.',
-      link: 'https://github.com/tu-usuario/proyecto3'
+      repoLink: 'https://github.com/tu-usuario/proyecto3',
+      siteLink: 'https://tu-sitio.com/proyecto3',
+      image: 'https://via.placeholder.com/150'
     }
   ];
 
@@ -28,10 +35,14 @@ const Projects = () => {
           <Col key={index} sm={12} md={6} lg={4} className="mb-4">
             <Card>
               <Card.Body>
+                <Card.Img variant="top" src={project.image} alt={project.title} />
                 <Card.Title>{project.title}</Card.Title>
                 <Card.Text>{project.description}</Card.Text>
-                <Button variant="custom" href={project.link} target="_blank">
-                  Ver Proyecto
+                <Button variant="custom" href={project.repoLink} target="_blank" className="mr-2 btn-sm">
+                  <FaGithub /> 
+                </Button>
+                <Button variant="custom" href={project.siteLink} target="_blank" className="btn-sm">
+                  <FaExternalLinkAlt /> 
                 </Button>
               </Card.Body>
             </Card>

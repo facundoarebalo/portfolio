@@ -1,29 +1,22 @@
 body {
     background-color: #FF3CAC;
 background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
-
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 
 
-.custom-fig {
-    text-align: center;
-  }
-  
-  .custom-img {
-    width: 250px;
-    max-width: 100%;
+.custom-img {
+    width: 250px; 
     height: 250px;
-  }
-  
-  @media (max-width: 768px) {
-    .custom-img {
-      width: 150px; 
-    }
+
   }
   
   .floating {
     animation: floating 3s ease-in-out infinite;
+
   }
   
   @keyframes floating {
@@ -34,4 +27,17 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
       transform: translateY(-10px);
     }
   }
+  @media (max-width: 768px) {
+    .custom-img {
+      width: 150px; /* Tamaño más pequeño */
+      height: 150px; /* Tamaño más pequeño */
+      display: block;
+      margin: 0 auto; /* Centrar la imagen */
+    }
+  
+    .text-container {
+      text-align: center; /* Asegura que el texto esté centrado */
+    }
+  }
+  
   
