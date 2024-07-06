@@ -6,12 +6,12 @@ import './Navbar.css';
 
 const Navegador =() => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" sticky='top' >
       <Container>
         <Navbar.Brand >Mi Portafolio</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto links">
             <Nav.Link as={Link} to="about" smooth={true} duration={500}>Sobre mí</Nav.Link>
             <Nav.Link as={Link} to="skills" smooth={true} duration={500}>Skills</Nav.Link>
             <Nav.Link as={Link} to="projects" smooth={true} duration={500}>Proyectos</Nav.Link>

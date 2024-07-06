@@ -18,31 +18,26 @@ const Projects = () => {
       siteLink: 'https://tu-sitio.com/proyecto2',
       image: 'https://via.placeholder.com/150'
     },
-    {
-      title: 'Proyecto 3',
-      description: 'Descripción del proyecto 3.',
-      repoLink: 'https://github.com/tu-usuario/proyecto3',
-      siteLink: 'https://tu-sitio.com/proyecto3',
-      image: 'https://via.placeholder.com/150'
-    }
+
   ];
 
   return (
-    <Container className="projects">
+    <>
+       <Container className="projects">
+      <Row className="justify-content-center">
       <h2>Mis Proyectos</h2>
-      <Row>
         {projectData.map((project, index) => (
-          <Col key={index} sm={12} md={6} lg={4} className="mb-4">
+          <Col key={index} sm={12} md={6} lg={4} className="mb-4 col">
             <Card>
               <Card.Body>
                 <Card.Img variant="top" src={project.image} alt={project.title} />
                 <Card.Title>{project.title}</Card.Title>
                 <Card.Text>{project.description}</Card.Text>
                 <Button variant="custom" href={project.repoLink} target="_blank" className="mr-2 btn-sm">
-                  <FaGithub /> 
+                  <FaGithub /> Ver repositorio
                 </Button>
-                <Button variant="custom" href={project.siteLink} target="_blank" className="btn-sm">
-                  <FaExternalLinkAlt /> 
+                <Button variant="custom" href={project.siteLink} target="_blank" className="btn-sm mt-2">
+                  <FaExternalLinkAlt /> Ver sitio
                 </Button>
               </Card.Body>
             </Card>
@@ -50,6 +45,7 @@ const Projects = () => {
         ))}
       </Row>
     </Container>
+        </>
   );
 }
 
