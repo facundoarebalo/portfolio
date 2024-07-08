@@ -8,7 +8,7 @@ const Navegador =() => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky='top' >
       <Container>
-        <Navbar.Brand >Mi Portafolio</Navbar.Brand>
+        <Navbar.Brand as={Link} to="home" smooth={true} duration={500} >Mi Portafolio</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto links">

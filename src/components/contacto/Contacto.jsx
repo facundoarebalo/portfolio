@@ -67,7 +67,7 @@ const Contacto = () => {
             required 
           />
         </Form.Group>
-        <Button variant="custom" type="submit">
+        <Button variant="custom" type="submit" className='mt-3'>
           Enviar
         </Button>
       </Form>

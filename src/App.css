@@ -1,43 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
+
+* {
+  font-family: "Kode Mono", monospace;
+}
 body {
-    background-color: #FF3CAC;
-background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  background-color: #ff3cac;
+  background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  );
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-
 .custom-img {
-    width: 250px; 
-    height: 250px;
+  width: 250px;
+  height: 250px;
+}
 
-  }
-  
-  .floating {
-    animation: floating 3s ease-in-out infinite;
+.about-enter {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.about-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.about-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.about-exit-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
 
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  
-  @keyframes floating {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+  50% {
+    transform: translateY(-10px);
   }
-  @media (max-width: 768px) {
-    .custom-img {
-      width: 150px; /* Tamaño más pequeño */
-      height: 150px; /* Tamaño más pequeño */
-      display: block;
-      margin: 0 auto; /* Centrar la imagen */
-    }
-  
-    .text-container {
-      text-align: center; /* Asegura que el texto esté centrado */
-    }
+}
+@media (max-width: 768px) {
+  .custom-img {
+    width: 150px; /* Tamaño más pequeño */
+    height: 150px; /* Tamaño más pequeño */
+    display: block;
+    margin: 0 auto; /* Centrar la imagen */
   }
-  
-  
+
+  .text-container {
+    text-align: center; /* Asegura que el texto esté centrado */
+  }
+}
