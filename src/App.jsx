@@ -32,7 +32,7 @@ function App() {
             <div className="col-md-4 text-center">
               <figure className='custom-fig'>
                 <img src={foto} alt="Foto de perfil" className="img-fluid rounded-circle custom-img floating" />
-                <h3 className='mt-2'>Hola, soy Facundo Arebalo</h3>
+                <h3 className='mt-2'>Hola, soy Facundo Arebalo 👋</h3>
               </figure>
             </div>
             <div className="col-md-8">

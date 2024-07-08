@@ -22,17 +22,16 @@ const Contacto = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+    emailjs.sendForm('service_mifeseg', 'template_2pqswma', e.target, 'ezXhsZos_l1IZzd5w')
       .then((result) => {
         console.log(result.text);
-        toast.success('Mensaje enviado con éxito');
-      }, (error) => {
+        toast.success('Mensaje enviado con éxito, te responderé pronto..');
+        setFormData({ name: '', email: '', message: '' }); 
         console.log(error.text);
         toast.error('Hubo un error al enviar el mensaje');
       });
     e.target.reset();
   };
-
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
