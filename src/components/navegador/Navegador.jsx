@@ -1,5 +1,5 @@
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import { FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaFileDownload, FaCode } from 'react-icons/fa';
 import { Link } from 'react-scroll'
 
 import './Navbar.css';
@@ -8,7 +8,9 @@ const Navegador =() => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky='top' >
       <Container>
-        <Navbar.Brand as={Link} to="home" smooth={true} duration={500} >Mi Portafolio</Navbar.Brand>
+        <Navbar.Brand as={Link} to="home" smooth={true} duration={500} >
+          <FaCode size={30} />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto links">

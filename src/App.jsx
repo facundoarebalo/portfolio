@@ -21,57 +21,57 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
-  
+
   return (
     <>
-    <Element name="home">
-      <Navegador />
-      <Element name="about">
-        <section className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-4 text-center">
-              <figure className='custom-fig'>
-                <img src={foto} alt="Foto de perfil" className="img-fluid rounded-circle custom-img floating" />
-                <h3 className='mt-2'>Hola, soy Facundo Arebalo 👋</h3>
-              </figure>
+      <Element name="home">
+        <Navegador />
+        <Element name="about">
+          <section className="container about">
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-4 text-center">
+                <figure className='custom-fig'>
+                  <img src={foto} alt="Foto de perfil" className="img-fluid rounded-circle custom-img floating" />
+                  <h3 className='mt-2'>Hola, soy Facundo Arebalo 👋</h3>
+                </figure>
+              </div>
+              <div className="col-md-8">
+                <CSSTransition
+                  in={showAbout}
+                  timeout={300}
+                  classNames="about"
+                  unmountOnExit
+                >
+                  <div>
+                    <h2>Sobre mí</h2>
+                    <p>Soy <strong>Desarrollador Full Stack</strong> con experiencia sólida en el stack MERN, me esfuerzo por ofrecer resultados excepcionales mientras me mantengo al día con las últimas tendencias tecnológicas. 🚀 <br />
+                      Lo que distingue mi enfoque es mi firme compromiso con el aprendizaje continuo. <br /> Creo firmemente en la importancia de mantenerme actualizado con las últimas tecnologías y metodologías de desarrollo. Ya sea explorando nuevas bibliotecas de JavaScript o dominando conceptos avanzados de bases de datos NoSQL, siempre estoy buscando expandir mis habilidades y conocimientos. 🚀</p>
+                  </div>
+                </CSSTransition>
+              </div>
             </div>
-            <div className="col-md-8">
-              <CSSTransition
-                in={showAbout}
-                timeout={300}
-                classNames="about"
-                unmountOnExit
-              >
-                <div>
-                  <h2>Sobre mí</h2>
-                  <p>Soy <strong>Desarrollador Full Stack</strong> con experiencia sólida en el stack MERN, me esfuerzo por ofrecer resultados excepcionales mientras me mantengo al día con las últimas tendencias tecnológicas. 🚀 <br />
-                  Lo que distingue mi enfoque es mi firme compromiso con el aprendizaje continuo. <br /> Creo firmemente en la importancia de mantenerme actualizado con las últimas tecnologías y metodologías de desarrollo. Ya sea explorando nuevas bibliotecas de JavaScript o dominando conceptos avanzados de bases de datos NoSQL, siempre estoy buscando expandir mis habilidades y conocimientos. 🚀</p>
-                </div>
-              </CSSTransition>
-            </div>
-          </div>
-        </section>
-      </Element>
-      <Element name="skills">
+          </section>
+        </Element>
+        <Element name="skills">
           <h2 className='text-center'>Mis Habilidades</h2>
-        <section className="skills">
-          <Skills />
-        </section>
+          <section className="">
+            <Skills />
+          </section>
+        </Element>
+        <Element name="projects">
+          <h2 className='text-center'>Mis Proyectos</h2>
+          <section className="">
+            <Projects />
+          </section>
+        </Element>
+        <Element name="contact">
+          <section className="contact">
+            <h2 className='text-center'>Contactate conmigo</h2>
+            <Contacto />
+          </section>
+        </Element>
+        <Footer />
       </Element>
-      <Element name="projects">
-        <h2 className='text-center'>Mis Proyectos</h2>
-        <section className="projects">
-          <Projects />
-        </section>
-      </Element>
-      <Element name="contact">
-        <section className="contact">
-          <h2 className='text-center'>Contactate conmigo</h2>
-          <Contacto />
-        </section>
-      </Element>
-      <Footer />
-    </Element>
     </>
   )
 }
