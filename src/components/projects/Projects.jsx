@@ -1,5 +1,5 @@
 import { FaExternalLinkAlt, FaGithub, FaNodeJs, FaReact } from "react-icons/fa";
-import { SiBootstrap, SiExpress, SiMongodb } from "react-icons/si";
+import { SiBootstrap, SiExpress, SiMongodb, SiVite } from "react-icons/si";
 import imageHtmlift from "../../assets/img/htmlift.png";
 import imageBills from "../../assets/img/billstv.png";
 import "./Projects.css";
@@ -10,6 +10,7 @@ const iconMap = {
   "Node.js": FaNodeJs,
   Express: SiExpress,
   MongoDB: SiMongodb,
+  Vite: SiVite,
 };
 
 const projects = [
@@ -26,6 +27,19 @@ const projects = [
     site: "https://htmlift.netlify.app/",
     image: imageHtmlift,
     featured: true,
+  },
+  {
+    title: "Umbral Inmobiliaria",
+    label: "Landing inmobiliaria · React + Vite",
+    description: "Landing page para una inmobiliaria, con catálogo de propiedades filtrable, navegación adaptable y secciones orientadas a consultas.",
+    features: [
+      "Filtros por operación, tipo de propiedad y ubicación.",
+      "Diseño mobile first para una experiencia clara en cualquier pantalla.",
+    ],
+    technologies: ["React", "Vite", "CSS"],
+    repository: "https://github.com/facundoarebalo/umbral-inmobiliaria",
+    site: "https://umbral-inmobiliaria-nine.vercel.app/",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=82",
   },
   {
     title: "Bills TV",
