@@ -1,0 +1,14 @@
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #dce7db;
+  color: #202722;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}

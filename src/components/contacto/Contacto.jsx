@@ -1,77 +1,80 @@
-import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
-import { Form, Button, Container } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './Contacto.css'
+import { useState } from "react";
+import emailjs from "emailjs-com";
+import { Button, Form } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Contacto.css";
 
 const Contacto = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSending, setIsSending] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs.sendForm('service_mifeseg', 'template_2pqswma', e.target, 'ezXhsZos_l1IZzd5w')
-      .then((result) => {
-        console.log(result.text);
-        toast.success('Mensaje enviado con éxito, te responderé pronto..');
-        setFormData({ name: '', email: '', message: '' }); 
-        console.log(error.text);
-        toast.error('Hubo un error al enviar el mensaje');
-      });
-    e.target.reset();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsSending(true);
+
+    emailjs
+      .sendForm("service_mifeseg", "template_2pqswma", event.currentTarget, "ezXhsZos_l1IZzd5w")
+      .then(() => {
+        toast.success("Mensaje enviado. ¡Gracias por escribirme!");
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch(() => {
+        toast.error("No se pudo enviar el mensaje. Probá de nuevo en unos minutos.");
+      })
+      .finally(() => setIsSending(false));
   };
+
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
+    <div className="contact-form-wrap">
+      <Form className="contact-form" onSubmit={handleSubmit}>
         <Form.Group controlId="formName">
           <Form.Label>Nombre</Form.Label>
-          <Form.Control 
-            type="text" 
-            name="name" 
-            value={formData.name} 
-            onChange={handleChange} 
-            required 
+          <Form.Control
+            type="text"
+            name="name"
+            autoComplete="name"
+            placeholder="Tu nombre"
+            value={formData.name}
+            onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group controlId="formEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control 
-            type="email" 
-            name="email" 
-            value={formData.email} 
-            onChange={handleChange} 
-            required 
+          <Form.Control
+            type="email"
+            name="email"
+            autoComplete="email"
+            placeholder="nombre@ejemplo.com"
+            value={formData.email}
+            onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group controlId="formMessage">
           <Form.Label>Mensaje</Form.Label>
-          <Form.Control 
-            as="textarea" 
-            rows={3} 
-            name="message" 
-            value={formData.message} 
-            onChange={handleChange} 
-            required 
+          <Form.Control
+            as="textarea"
+            rows={4}
+            name="message"
+            placeholder="Contame brevemente qué necesitás"
+            value={formData.message}
+            onChange={handleChange}
+            required
           />
         </Form.Group>
-        <Button variant="custom" type="submit" className='mt-3'>
-          Enviar
+        <Button className="contact-submit" type="submit" disabled={isSending}>
+          {isSending ? "Enviando..." : "Enviar mensaje"}
         </Button>
       </Form>
-      <ToastContainer />
-    </Container>
+      <ToastContainer position="bottom-right" />
+    </div>
   );
 };
 

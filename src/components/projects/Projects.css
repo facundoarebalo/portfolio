@@ -1,57 +1,192 @@
-.projects {
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid #dfe4dd;
+  background: #fff;
+}
+
+.project-card-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.project-image-wrap {
+  min-height: 260px;
+  overflow: hidden;
+  background: #e9ece7;
+}
+
+.project-card-featured .project-image-wrap {
+  min-height: 440px;
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 400ms ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.025);
+}
+
+.project-card-featured .project-image {
+  min-height: 440px;
+}
+
+.project-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(22px, 3.2vw, 40px);
+}
+
+.project-label {
+  margin: 0 0 13px;
+  color: #647a69;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-content h3 {
+  margin: 0;
+  color: #202722;
+  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+  font-weight: 650;
+  letter-spacing: -0.05em;
+}
+
+.project-summary {
+  margin: 16px 0 0;
+  color: #68726b;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.project-features {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding-left: 19px;
+  color: #4b5750;
+  font-size: 0.87rem;
+  line-height: 1.65;
+}
+
+.project-features li::marker {
+  color: #647a69;
+}
+
+.project-technologies {
+  display: flex;
   flex-wrap: wrap;
-  text-align: center;
-  padding: 10px;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.projects .col {
+.project-technologies li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 9px;
+  border: 1px solid #e0e5de;
+  background: #f7f8f5;
+  color: #59655d;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.project-technologies svg {
+  color: #647a69;
+  font-size: 0.85rem;
+}
+
+.project-links {
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 28px;
 }
-  
-  .card {
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+.project-link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid #dfe4dd;
+  color: #354139;
+  font-size: 0.81rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.project-link-primary {
+  border-color: #4e6353;
+  background: #4e6353;
+  color: white;
+}
+
+.project-link-primary:hover {
+  border-color: #26342b;
+  background: #26342b;
+  color: white;
+}
+
+.project-link-secondary:hover {
+  border-color: #aebbad;
+  background: #f3f5f1;
+  color: #26342b;
+}
+
+@media (max-width: 760px) {
+  .project-list {
+    grid-template-columns: 1fr;
   }
 
-  
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  .project-card-featured {
+    grid-template-columns: 1fr;
   }
-  
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+  .project-card-featured .project-image-wrap,
+  .project-card-featured .project-image {
+    min-height: 300px;
   }
-  
-  .btn-custom {
-    background-color: grey;
-    border-color: grey;
-    color: white;
+}
+
+@media (max-width: 480px) {
+  .project-image-wrap,
+  .project-image {
+    min-height: 220px;
   }
-  
-  .btn-custom:hover {
-    background-color: purple;
-    border-color: purple;
+
+  .project-card-featured .project-image-wrap,
+  .project-card-featured .project-image {
+    min-height: 230px;
   }
-  
-  .tech-icon {
-    font-size: 1.5em; 
-    margin-right: 10px; 
+
+  .project-links {
+    width: 100%;
   }
-  .project-description {
-    display: -webkit-box;
-    -webkit-line-clamp: 5; 
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+  .project-link {
+    flex: 1;
+    justify-content: center;
   }
-  
-  .project-description.show-full {
-    -webkit-line-clamp: unset;
-  }
+}

@@ -1,16 +1,50 @@
-.skills {
-  text-align: center;
-  padding: 20px;
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.skill {
-  margin: 10px;
+.technology-item {
   display: flex;
-  flex-direction: column;
+  min-height: 76px;
   align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid #dce2da;
+  background: rgba(255, 255, 255, 0.58);
+  color: #354139;
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
-.skill span {
-  margin-top: 5px;
-  font-size: 1.2em;
+.technology-icon {
+  display: inline-flex;
+  width: 28px;
+  justify-content: center;
+  color: #647a69;
+  font-size: 1.25rem;
+}
+
+.technology-mark {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+@media (max-width: 760px) {
+  .technology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .technology-item {
+    min-height: 68px;
+    gap: 9px;
+    padding: 12px;
+    font-size: 0.82rem;
+  }
 }

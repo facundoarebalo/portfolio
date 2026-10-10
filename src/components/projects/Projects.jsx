@@ -1,88 +1,82 @@
-import React, { useState } from 'react';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
-import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs } from 'react-icons/fa';
-import { SiBootstrap, SiMongodb, SiExpress } from 'react-icons/si';
-import './Projects.css';
-import image1 from '../../assets/img/htmlift.png';
-import image2 from '../../assets/img/billstv.png';
+import { FaExternalLinkAlt, FaGithub, FaNodeJs, FaReact } from "react-icons/fa";
+import { SiBootstrap, SiExpress, SiMongodb } from "react-icons/si";
+import imageHtmlift from "../../assets/img/htmlift.png";
+import imageBills from "../../assets/img/billstv.png";
+import "./Projects.css";
 
-const Projects = () => {
-  const iconMap = {
-    'React': <FaReact />,
-    'Bootstrap': <SiBootstrap />,
-    'Node': <FaNodeJs />,
-    'Express': <SiExpress />,
-    'MongoDB': <SiMongodb />
-  };
-
-  const projectData = [
-    {
-      title: 'Bills TV',
-      description: 'Aplicación web para la compra de productos de televisión, la cual cuenta con un diseño moderno y un diseño moderno para el cliente, este proyecto solo cuenta con parte del front ya que es uno de los primeros que hice.',
-      repoLink: 'https://github.com/facundoarebalo/billsTV-front',
-      siteLink: 'https://bills-tv.vercel.app/',
-      image: image2,
-      tecnologies: ['React', 'Bootstrap']
-    },
-    {
-      title: 'HTMlift GYM',
-      description: 'Es una aplicación web diseñada específicamente para gimnasios, con el objetivo de proporcionar una experiencia de usuario excepcional tanto para los administradores del gimnasio como para sus miembros.',
-      repoLink: 'https://github.com/santiag004/proyectofinal-78i',
-      siteLink: 'https://htmlift.netlify.app/',
-      image: image1,
-      tecnologies: ['React', 'Bootstrap', 'Node', 'Express', 'MongoDB']
-    },
-  ];
-
-  return (
-    <Container className="projects">
-      <Row className="justify-content-center">
-        {projectData.map((project, index) => (
-          <Col key={index} sm={12} md={6} lg={4} className="mb-4 col">
-            <Card>
-              <Card.Body>
-                <Card.Img variant="top" src={project.image} alt={project.title} />
-                <Card.Title>{project.title}</Card.Title>
-                <ProjectDescription description={project.description} />
-                <Button variant="custom" href={project.repoLink} target="_blank" className="mr-2 btn-sm">
-                  <FaGithub /> Ver repositorio
-                </Button>
-                <Button variant="custom" href={project.siteLink} target="_blank" className="btn-sm mt-2">
-                  <FaExternalLinkAlt /> Ver sitio
-                </Button>
-                <Card.Text>
-                  {project.tecnologies.map((tech, i) => (
-                    <span key={i} className="tech-icon">
-                      {iconMap[tech]}
-                    </span>
-                  ))}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
+const iconMap = {
+  React: FaReact,
+  Bootstrap: SiBootstrap,
+  "Node.js": FaNodeJs,
+  Express: SiExpress,
+  MongoDB: SiMongodb,
 };
 
-const ProjectDescription = ({ description }) => {
-  const [showFull, setShowFull] = useState(false);
+const projects = [
+  {
+    title: "HTMLift Gym",
+    label: "Proyecto colaborativo · MERN",
+    description: "Aplicación web para la gestión de gimnasios. Centraliza la administración de miembros y clases para facilitar el seguimiento y la organización diaria.",
+    features: [
+      "Gestión de perfiles de miembros, con seguimiento de progreso y asistencia.",
+      "Administración de horarios, disponibilidad y reservas de clases.",
+    ],
+    technologies: ["React", "Bootstrap", "Node.js", "Express", "MongoDB"],
+    repository: "https://github.com/santiag004/proyectofinal-78i",
+    site: "https://htmlift.netlify.app/",
+    image: imageHtmlift,
+    featured: true,
+  },
+  {
+    title: "Bills TV",
+    label: "Frontend · React",
+    description: "Interfaz web para una plataforma de streaming, construida con React y Bootstrap.",
+    technologies: ["React", "Bootstrap"],
+    repository: "https://github.com/facundoarebalo/billsTV-front",
+    site: "https://bills-tv.vercel.app/",
+    image: imageBills,
+  },
+];
 
-  const toggleShowFull = () => {
-    setShowFull(!showFull);
-  };
-
-  return (
-    <div>
-      <Card.Text className={`project-description ${showFull ? 'show-full' : ''}`}>
-        {description}
-      </Card.Text>
-      <Button variant="link" onClick={toggleShowFull} className="p-0">
-        {showFull ? 'Ver menos' : 'Ver más'}
-      </Button>
-    </div>
-  );
-};
+const Projects = () => (
+  <div className="project-list">
+    {projects.map((project) => (
+      <article className={"project-card" + (project.featured ? " project-card-featured" : "")} key={project.title}>
+        <div className="project-image-wrap">
+          <img className="project-image" src={project.image} alt={"Vista previa de " + project.title} />
+        </div>
+        <div className="project-content">
+          <p className="project-label">{project.label}</p>
+          <h3>{project.title}</h3>
+          <p className="project-summary">{project.description}</p>
+          {project.features && (
+            <ul className="project-features">
+              {project.features.map((feature) => <li key={feature}>{feature}</li>)}
+            </ul>
+          )}
+          <ul className="project-technologies" aria-label={"Tecnologías utilizadas en " + project.title}>
+            {project.technologies.map((technology) => {
+              const Icon = iconMap[technology];
+              return (
+                <li key={technology}>
+                  {Icon && <Icon aria-hidden="true" />}
+                  <span>{technology}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="project-links">
+            <a className="project-link project-link-primary" href={project.site} target="_blank" rel="noreferrer">
+              <FaExternalLinkAlt aria-hidden="true" /> Ver demo
+            </a>
+            <a className="project-link project-link-secondary" href={project.repository} target="_blank" rel="noreferrer">
+              <FaGithub aria-hidden="true" /> Repositorio
+            </a>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+);
 
 export default Projects;

@@ -1,10 +1,68 @@
-.btn-custom {
-    background-color: grey;
-    border-color: grey;
-    color: white;
+.contact-form {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-form .form-label {
+  margin-bottom: 8px;
+  color: #edf2ed;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.contact-form .form-control {
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(230, 238, 229, 0.24);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  font-size: 0.9rem;
+  box-shadow: none;
+}
+
+.contact-form textarea.form-control {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.contact-form .form-control::placeholder {
+  color: #aebbb0;
+  opacity: 0.8;
+}
+
+.contact-form .form-control:focus {
+  border-color: #bacdb9;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  box-shadow: 0 0 0 3px rgba(188, 203, 189, 0.13);
+}
+
+.contact-submit {
+  justify-self: start;
+  min-height: 46px;
+  padding-inline: 18px;
+  border: 1px solid #e6eee5;
+  border-radius: 3px;
+  background: #e6eee5;
+  color: #26342b;
+  font-size: 0.87rem;
+  font-weight: 700;
+}
+
+.contact-submit:hover,
+.contact-submit:focus {
+  border-color: white;
+  background: white;
+  color: #26342b;
+}
+
+.contact-submit:disabled {
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .contact-submit {
+    width: 100%;
   }
-  
-  .btn-custom:hover {
-    background-color: purple;
-    border-color: purple;
-  }
+}
